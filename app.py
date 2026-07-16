@@ -17,12 +17,12 @@ def home():
 def predict():
     review = request.form.get("review", "").strip()
     if not review:
-    return render_template(
-        "index.html",
-        result=None,
-        review="",
-        submitted_review="Please enter a review."
-    )
+        return render_template(
+            "index.html",
+            result=None,
+            review="",
+            submitted_review="Please enter a review."
+        )
     review_vector = vectorizer.transform([review])
     prediction = model.predict(review_vector)
     result = prediction[0]
